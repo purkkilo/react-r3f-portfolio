@@ -16,4 +16,61 @@
     padding: 0;
     overflow: hidden;
   }
+
+  .link-button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  .background {
+    background: #12071f;
+  }
+
+  .background-button {
+    margin-right: 20px;
+    border-radius: 3%;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
+  }
+
+  .project-image {
+    border-radius: 2%;
+  }
+
+  .intro-div {
+    margin-top: 40%;
+    margin-bottom: 80%;
+  }
+
+  .language-button {
+    margin-right: 20px;
+  }
+
+  .learn-button {
+    background-color: red;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    scrollbar-color: #0d0516 grey;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+  }
+
+  .overlay:hover .overlay.top {
+    top: 0;
+  }
 }
