@@ -1,9 +1,15 @@
   const description =
     "I'm calm person with high work ethic and passion for web- and software development. I might lack professional experience, but my time in LUT university has prepared me for many scenarios. Frontend is my thing, but I'm always prepared to learn more. I'm my bachelors in techonology from computer science, and I'm looking for a subject to finish my master's (Software Engineering and Digital Transformation). On my free time I like to go to gym, watch movies and solve all kinds of puzzles, from ARGs and coding puzzles to chess."
 
-  const fisustajaDescription = 'Nice description'
-
-  const webgisDescription = 'Nice description'
+  const fisustajaDescription = `Application that is made for
+  hosting fishing competitions (in Cup type setting, or standalone).
+  Application was made for myself and for the purpose of learning Node,
+  MongoDB, JavaScript and Vue 2 stack.
+  `
+  const webgisDescription = `Web app for viewing cities along the silkroad.
+  Made for university's GIS (Geographic Information Systems) course. From the map you can find their coordinates,
+  and 3 of the closest hotels for most of the cities.
+  `
 
 
   export const en = {

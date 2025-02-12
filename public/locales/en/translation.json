@@ -12,5 +12,7 @@
   "toggleBackground": "Toggle Background",
   "about": "About",
   "learn-more": "Learn more",
-  "visit": "Visit the site"
+  "learn-me": "More about me",
+  "visit": "Visit the site",
+  "hint": "Hint: Try to left click and move your mouse. Scroll also works"
 }

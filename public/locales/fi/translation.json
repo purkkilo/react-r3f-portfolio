@@ -9,8 +9,10 @@
   "contactTitle": "Ota yhteyttä",
   "background": "Tausta",
   "skills": "Taidot",
-  "toggleBackground": "Näytä tausta",
+  "toggleBackground": "Vaihda tausta",
   "about": "Minusta",
   "learn-more": "Opi lisää",
-  "visit": "Vieraile sivulla"
+  "learn-me": "Lisää minusta",
+  "visit": "Vieraile sivulla",
+  "hint": "Vinkki: Kokeile painaa hiiren vasenta näppäintä ja liikuttaa hiirtä. Rulla toimii myös"
 }
