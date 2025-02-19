@@ -40,7 +40,7 @@
   }
 
   .intro-div {
-    margin-top: 40%;
+    margin-top: 20%;
     margin-bottom: 80%;
   }
 
@@ -48,6 +48,40 @@
     margin-right: 20px;
     transition: +0.3s;
     border-radius: 2%;
+  }
+  /* text with rotating color animation */
+  #name-title {
+    font-size: 70px;
+    color: #887dff;
+    text-align: center;
+    animation-name: rotating;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    margin-right: 10px;
+  }
+
+  @keyframes rotating {
+    0% {
+      color: #887dff;
+    }
+    25% {
+      color: #802fa5;
+    }
+    50% {
+      color: rgb(255, 255, 95);
+    }
+    75% {
+      color: #2dff9d;
+    }
+    100% {
+      color: #887dff;
+    }
+  }
+  #job-title {
+    font-size: 30px;
+    color: #887dff;
+    text-align: center;
+    text-decoration: wavy;
   }
 
   #language-button:hover {

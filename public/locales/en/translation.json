@@ -1,6 +1,8 @@
 {
   "langFi": "Finnish",
-  "langEn": "English",
+  "langEn": "English",   
+  "introMessage": "Hi, I'm",
+  "introJob": "Web Developer",
   "homeTitle": "Home Page",
   "projects": "Projects",
   "contact": "Contact",

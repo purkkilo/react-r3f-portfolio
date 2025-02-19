@@ -60,9 +60,13 @@ const MainContent = ({ showBackground, translation }) => {
       <div id='background' className='overlay container mx-auto text-white'>
         <div className='my-20 flex flex-col' id='main-content'>
           <div className='intro-div text-center'>
-            <h1 className='my-4 text-5xl font-bold leading-tight'>Hey, I&apos;m Jori</h1>
-            <h1 className=''>Web developer</h1>
-            <h1 className=''>Jori and web developer with different styling, some animations</h1>
+            <h1 className='my-4 text-5xl leading-tight'>
+              <FormattedMessage id='introMessage' defaultMessage='Hey, I am' />
+              <span id='name-title'> Jori</span>
+            </h1>
+            <h1 className='font-bold' id='job-title'>
+              Web developer
+            </h1>
             <a href='#about' id='learn-button' className='menu-button'>
               <FormattedMessage id='learn-me' defaultMessage='More about me' />
             </a>
@@ -246,14 +250,14 @@ export default function Page() {
   const toggleBackground = () => {
     setShowBackground(showBackground === true ? false : true)
   }
-
+  /* TODO adjust star position */
   return (
     <>
       {/* Background */}
       <div className='background relative size-full'>
         <View orbit={showBackground ? false : true} className='relative size-full' style={{ touchAction: 'none' }}>
           <Suspense>
-            <Stars position={[0, 0, 0]} />
+            <Stars position={[0, 0, 0.5]} />
             <Common color={backgroundColor} />
           </Suspense>
         </View>

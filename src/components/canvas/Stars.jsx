@@ -6,7 +6,7 @@ import { inSphere } from 'maath/random'
 
 extend({ TextGeometry })
 
-const STAR_AMOUNT = 6000 * 3
+const STAR_AMOUNT = 10000 * 3
 
 export const Stars = ({ ...props }) => {
   const ref = useRef()
