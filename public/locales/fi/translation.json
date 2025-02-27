@@ -1,7 +1,7 @@
 {
   "langFi": "Suomi",
   "introMessage":"Hei, Olen",
-  "introJob": "Verkko Kehittäjä",
+  "introJob": "Verkkokehittäjä",
   "langEn": "Englanti",
   "homeTitle": "Kotisivu",
   "projects": "Projektit",
@@ -11,7 +11,7 @@
   "contactTitle": "Ota yhteyttä",
   "background": "Tausta",
   "skills": "Taidot",
-  "toggleBackground": "Vaihda tausta",
+  "toggleBackground": "Näytä/Piilota tausta",
   "about": "Minusta",
   "learn-more": "Opi lisää",
   "learn-me": "Lisää minusta",

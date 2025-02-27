@@ -23,23 +23,18 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 })
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
-const LinkButton = ({ href, children }) => {
-  return (
-    <a href={href} id='link-button' className='menu-button' target='_blank' rel='noopener noreferrer'>
-      {children}
-    </a>
-  )
-}
+const Project = dynamic(() => import('@/components/canvas/Project').then((mod) => mod.Project), {ssr: false})
+
 
 const MenuButtons = ({ locale, changeLanguage, toggleBackground }) => {
   return (
-    <div className='flex flex-row text-white' style={{ top: 10, right: 150, position: 'absolute', zIndex: 100 }}>
-      <button className='menu-button tooltip' id='language-button' onClick={changeLanguage}>
+    <div className='flex flex-row text-white' style={{ top: 10, marginLeft: 60, position: 'absolute', zIndex: 100 }}>
+      <button className='menu-button rounded-lg tooltip' id='language-button' onClick={changeLanguage}>
         <Image
           width={40}
           height={40}
           src={locale === 'fi' ? FlagFi : FlagEn}
-          alt='test'
+          alt='language button english/finnish'
           style={{ borderRadius: '10%' }}
         />
         <span style={{ left: '-40px' }} className='tooltiptext'>
@@ -59,15 +54,15 @@ const MainContent = ({ showBackground, translation }) => {
     return (
       <div id='background' className='overlay container mx-auto text-white'>
         <div className='my-20 flex flex-col' id='main-content'>
-          <div className='intro-div text-center'>
+          <div className='intro-div gap-y-[50px] text-center'>
             <h1 className='my-4 text-5xl leading-tight'>
               <FormattedMessage id='introMessage' defaultMessage='Hey, I am' />
               <span id='name-title'> Jori</span>
             </h1>
             <h1 className='font-bold' id='job-title'>
-              Web developer
+              <FormattedMessage id='introJob' defaultMessage='Web Developer' />
             </h1>
-            <a href='#about' id='learn-button' className='menu-button'>
+            <a href='#about' id='learn-button'>
               <FormattedMessage id='learn-me' defaultMessage='More about me' />
             </a>
           </div>
@@ -145,69 +140,14 @@ const MainContent = ({ showBackground, translation }) => {
               <FormattedMessage id='projectsTitle' defaultMessage='Projects' />
             </h1>
           </div>
-          <div
-            className='flex-col'
-            style={{
-              marginBottom: '50px',
-              margin: '30px',
-              paddingTop: '30px',
-              backgroundColor: '#12071f',
-              borderRadius: '10px',
-            }}
-          >
-            <h1 className='col-span-2 mb-2 text-center text-xl font-bold'>WebGIS Silkroad</h1>
-            <Image
-              className='project-image'
-              width={600}
-              height={600}
-              src='/img/WebGIS_Example.png'
-              alt='Image of WebGIS project'
-            ></Image>
-            <div className='justify-items-center px-20 py-10 text-center'>
-              <p className='col-span-2 text-base text-gray-300'>{translation.webgisDescription}</p>
-              <div style={{ marginTop: '20px' }} className='flex justify-around'>
-                <LinkButton href='https://webgis-silkroad.onrender.com/'>
-                  <FormattedMessage id='visit' defaultMessage='Visit' />
-                </LinkButton>
-                <LinkButton href='https://github.com/purkkilo/WebGIS-Silkroad'>
-                  <Image width={20} height={20} src={'https://skillicons.dev/icons?i=github'} alt='Github icon' />
-                  <FormattedMessage id='learn-more' defaultMessage='Learn more' />
-                </LinkButton>
-              </div>
-            </div>
-          </div>
-          <div
-            className='flex-col'
-            style={{
-              marginBottom: '50px',
-              margin: '30px',
-              paddingTop: '30px',
-              backgroundColor: '#12071f',
-              borderRadius: '10px',
-            }}
-          >
-            <h1 className='mb-2 text-center text-xl font-bold'>Fisustaja</h1>
-            <Image
-              className='project-image'
-              width={600}
-              height={600}
-              src='/img/Fisustaja_Example.png'
-              alt='Image of Fisustaja project'
-            ></Image>
-            <div className='justify-items-center px-20 py-10 text-center'>
-              <p className='col-span-2 text-base text-gray-300'>{translation.fisustajaDescription}</p>
-              <div style={{ marginTop: '20px' }} className='flex justify-around'>
-                <LinkButton href='https://fisustaja.onrender.com/'>
-                  <FormattedMessage id='visit' defaultMessage='Visit' />
-                </LinkButton>
-
-                <LinkButton href='https://github.com/purkkilo/Fisustaja'>
-                  <Image width={20} height={20} src={'https://skillicons.dev/icons?i=github'} alt='Github icon' />
-                  <FormattedMessage id='learn-more' defaultMessage='Learn more' />
-                </LinkButton>
-              </div>
-            </div>
-          </div>
+          <Project name={'WebGIS Silkroad'} imageLink={'/img/WebGIS_Example.png'} imageAlt={'Image of WebGIS project'} description={translation.webgisDescription}
+          visitLink={'https://webgis-silkroad.onrender.com/'}
+          learnLink={'https://github.com/purkkilo/WebGIS-Silkroad'}
+          />
+          <Project name={'Fisustaja'} imageLink={'/img/Fisustaja_Example.png'} imageAlt={'Image of Fisustaja project'} description={translation.webgisDescription}
+          visitLink={'https://fisustaja.onrender.com/'}
+          learnLink={'https://github.com/purkkilo/Fisustaja'}
+          />
           <div className='mt-10 text-center'>
             <h1 className='my-4 text-5xl font-bold leading-tight'>
               <FormattedMessage id='contact' defaultMessage='Contact' />
@@ -257,7 +197,7 @@ export default function Page() {
       <div className='background relative size-full'>
         <View orbit={showBackground ? false : true} className='relative size-full' style={{ touchAction: 'none' }}>
           <Suspense>
-            <Stars position={[0, 0, 0.5]} />
+            <Stars position={[0, 0, 0]} />
             <Common color={backgroundColor} />
           </Suspense>
         </View>

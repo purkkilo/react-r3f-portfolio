@@ -19,10 +19,10 @@
   #link-button {
     background-color: #4caf50;
     color: white;
-    padding: 10px;
     text-align: center;
     font-size: 18px;
-    border-radius: 5%;
+    background: none;
+    outline: 1px solid #babbc0;
   }
 
   #link-button:hover {
@@ -34,21 +34,15 @@
   }
 
   .project-image {
-    border-radius: 2%;
-    transition: 0.5s;
     margin: auto;
   }
 
   .intro-div {
     margin-top: 20%;
-    margin-bottom: 80%;
+    margin-bottom: 70%;
   }
 
-  .menu-button {
-    margin-right: 20px;
-    transition: +0.3s;
-    border-radius: 2%;
-  }
+
   /* text with rotating color animation */
   #name-title {
     font-size: 70px;
@@ -99,15 +93,16 @@
   }
 
   #learn-button {
-    border: 1px solid white;
-    padding: 3px;
+    border: none;
+    text-decoration: underline;
+    font-size: 20px;
+    padding: 10px;
   }
 
   #learn-button:hover {
-    background-color: white;
-    color: #0d0516;
+    color: #7700ff;
   }
-
+  /*TODO learn button more down, button styling, mobile styling*/
   .text-box {
     margin: auto;
     text-wrap: pretty;
