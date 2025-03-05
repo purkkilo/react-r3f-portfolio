@@ -38,10 +38,30 @@
   }
 
   .intro-div {
-    margin-top: 20%;
-    margin-bottom: 70%;
+    margin-top: 25%;
+    margin-bottom: 80%;
   }
 
+  .contact-link {
+    text-decoration: underline white;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .contact-link:hover {
+    color: #7700ff;
+    text-decoration: underline #7700ff;
+  }
+
+  .footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #12071f;
+    color: white;
+    padding: 15px;
+    z-index: 100;
+  }
 
   /* text with rotating color animation */
   #name-title {

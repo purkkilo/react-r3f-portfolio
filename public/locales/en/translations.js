@@ -4,7 +4,7 @@
   const fisustajaDescription = `Application that is made for
   hosting fishing competitions (in Cup type setting, or standalone).
   Application was made for myself and for the purpose of learning Node,
-  MongoDB, JavaScript and Vue 2 stack.
+  MongoDB, JavaScript and Vue 2 stack. *The project is hosted on Render for free, so it might take a minute for the server to start.
   `
   const webgisDescription = `Web app for viewing cities along the silkroad.
   Made for university's GIS (Geographic Information Systems) course. From the map you can find their coordinates,

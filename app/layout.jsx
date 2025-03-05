@@ -2,7 +2,7 @@ import { Layout } from '@/components/dom/Layout'
 import './global.css'
 
 export const metadata = {
-  title: "Jori's Portfolio",
+  title: 'Jori | Web Developer & Software Engineer',
   description: 'A portfolio site using Nextjs + React-three-fiber and Threejs.',
 }
 
