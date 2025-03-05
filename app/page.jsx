@@ -42,7 +42,7 @@ const MenuButtons = ({ locale, changeLanguage, toggleBackground }) => {
     </div>
   )
 }
-
+// TODO: Animations to buttons, links and images
 const MainContent = ({ showBackground, translation, projects }) => {
   if (showBackground) {
     return (
@@ -171,7 +171,7 @@ const MainContent = ({ showBackground, translation, projects }) => {
           </div>
         </div>
         <div className='footer text-center text-white'>
-          <p>© 2025 Jori Kosonen</p>
+          <p>© 2025 Jori Kosonen, Site WIP and more projects to come</p>
         </div>
       </div>
     )
