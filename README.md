@@ -1,6 +1,6 @@
 # **react-r3f-portfolio**
 
-Web portfolio made with React, Next.js and TailwindCSS. Backgound "stars" were made with Three.js and React-three-fiber. The site is made to showcase my skills and projects and is available in English and Finnish. Site is running [here](https://react-r3f-portfolio-purkkilos-projects.vercel.app/).
+Web portfolio made with React, Next.js and TailwindCSS. Backgound "stars" were made with Three.js and React-three-fiber. The site is made to showcase my skills and projects and is available in English and Finnish. Site is running [here](https://purkkilo-portfolio-purkkilos-projects.vercel.app/).
 
 <p align="center">
 <img src="./public/img/Portfolio_Example.png"
