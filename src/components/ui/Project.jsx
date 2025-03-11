@@ -38,23 +38,23 @@ const LinkButton = ({ href, children, isGithub }) => {
 
 export const Project = ({ name, imageLink, imageAlt, description, visitLink, githubLink, stack }) => {
   return (
-    <div className='m-10 flex-col rounded-lg bg-[#1f2e48] p-10 shadow-lg'>
+    <div className='m-2 flex-col rounded-lg bg-[#1f2e48] p-5 shadow-lg sm:m-10 sm:p-10'>
       <div className='image-title rounded-lg'>{name}</div>
       <Image className='project-image rounded-lg' width={800} height={800} src={imageLink} alt={imageAlt}></Image>
 
-      <div className='justify-items-center bg-[#0c121d] px-20 py-10 text-center'>
+      <div className='justify-items-center bg-[#0c121d] p-3 text-center sm:p-10'>
         <p className='text-gray-300'>{description}</p>
-        <div className='flex justify-around rounded-lg bg-[#0c121d] p-5' style={{ marginTop: '40px' }}>
+        <div className='flex justify-around rounded-lg bg-[#0c121d] sm:p-5' style={{ marginTop: '40px' }}>
           {stack.map((tech, i) => (
             <div className='tooltip rounded-lg' key={i}>
-              <Image width={80} height={80} src={tech.icon} alt='Javascript' />
+              <Image width={100} height={100} src={tech.icon} alt='Javascript' />
               <span style={{ marginTop: '40px', left: '-20px' }} className='tooltiptext'>
                 {tech.name}
               </span>
             </div>
           ))}
         </div>
-        <div style={{ marginTop: '20px' }} className='flex justify-around'>
+        <div style={{ marginTop: '20px' }} className='flex content-start justify-around'>
           <LinkButton href={visitLink} isGithub={false}>
             <FormattedMessage id='visit' defaultMessage='Visit' />
           </LinkButton>
