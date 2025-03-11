@@ -11,9 +11,13 @@
   and 3 of the closest hotels for most of the cities.
   `
 
+  const portfolioDescription = `Web portfolio made with React, Next.js and TailwindCSS.
+  Backgound "stars" were made with Three.js and React-three-fiber.
+  The site is made to showcase my skills and projects and is available in English and Finnish.`
 
   export const en = {
   description,
   fisustajaDescription,
-  webgisDescription
+  webgisDescription,
+  portfolioDescription
 }

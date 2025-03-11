@@ -7,10 +7,13 @@ const description =
   const webgisDescription = `Verkkosovellus silkkitien ja sen varrella olevien kaupunkien tarkastelemiseen.
   Tehty yliopiston GIS (Geographic Information Systems) kurssia varten. Silkkitien lisäksi matkalta näkyy kaupungit ja kolme lähintä hotellia.
   `
-
+  const portfolioDescription = `Verkkosivusto tehty React, Next.js ja TailwindCSS teknologioilla.
+  Taustan "tähdet" on tehty Three.js ja React-three-fiber:llä.
+  Sivusto on tehty esittelemään taitojani ja projektejani ja on saatavilla englanniksi ja suomeksi.`
 
 export const fi = {
   description,
   fisustajaDescription,
-  webgisDescription
+  webgisDescription,
+  portfolioDescription
 }
