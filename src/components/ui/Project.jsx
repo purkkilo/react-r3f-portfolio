@@ -36,30 +36,34 @@ const LinkButton = ({ href, children, isGithub }) => {
   }
 }
 
-export const Project = ({ name, imageLink, imageAlt, description, visitLink, githubLink, stack }) => {
+export const Project = ({ project }) => {
   return (
     <div className='m-2 flex-col rounded-lg bg-[#1f2e48] p-5 shadow-lg sm:m-10 sm:p-10'>
-      <div className='image-title rounded-lg'>{name}</div>
-      <Image className='project-image rounded-lg' width={800} height={800} src={imageLink} alt={imageAlt}></Image>
+      <div className='image-title rounded-lg'>{project.name}</div>
+      <Image
+        className='project-image rounded-lg'
+        width={800}
+        height={800}
+        src={project.imageLink}
+        alt={project.imageAlt}
+      ></Image>
 
       <div className='justify-items-center bg-[#0c121d] p-3 text-center sm:p-10'>
-        <p className='text-gray-300'>{description}</p>
+        <p className='text-gray-300'>{project.description}</p>
         <div className='flex justify-around rounded-lg bg-[#0c121d] sm:p-5' style={{ marginTop: '40px' }}>
-          {stack.map((tech, i) => (
-            <div className='tooltip rounded-lg' key={i}>
+          {project.stack.map((tech, i) => (
+            <div key={i}>
               <Image width={100} height={100} src={tech.icon} alt='Javascript' />
-              <span style={{ marginTop: '40px', left: '-20px' }} className='tooltiptext'>
-                {tech.name}
-              </span>
+              <p className='font-semibold text-skills'>{tech.name}</p>
             </div>
           ))}
         </div>
         <div style={{ marginTop: '20px' }} className='flex content-start justify-around'>
-          <LinkButton href={visitLink} isGithub={false}>
+          <LinkButton href={project.visitLink} isGithub={false}>
             <FormattedMessage id='visit' defaultMessage='Visit' />
           </LinkButton>
 
-          <LinkButton href={githubLink} isGithub={true}>
+          <LinkButton href={project.githubLink} isGithub={true}>
             <FormattedMessage id='learn-more' defaultMessage='Learn More' />
           </LinkButton>
         </div>

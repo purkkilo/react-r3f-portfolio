@@ -226,6 +226,15 @@
     width: 80%;
   }
 
+  .text-skills {
+    text-shadow:
+      0 0 2px #00fffc,
+      0 0 30px #00fffc,
+      0px 0px 5px #00fffc,
+      0 0 150px #00fffc;
+    color: #ffffff;
+  }
+
   .tooltip {
     position: relative;
     display: inline-block;

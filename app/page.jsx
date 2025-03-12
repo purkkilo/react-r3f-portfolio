@@ -48,7 +48,7 @@ const MenuButtons = ({ locale, changeLanguage, toggleBackground }) => {
   )
 }
 
-const MainContent = ({ showBackground, translation, projects }) => {
+const MainContent = ({ showBackground, translation, projects, skills }) => {
   if (showBackground) {
     return (
       // Main content
@@ -59,7 +59,9 @@ const MainContent = ({ showBackground, translation, projects }) => {
           <div className='intro-div slide-right text-center'>
             <h1 className='my-4 text-5xl leading-tight '>
               <FormattedMessage id='introMessage' defaultMessage='Hey, I am' />
-              <span id='name-title'> Jori</span>
+              <span id='name-title' className='text-skills' style={{ marginLeft: '15px' }}>
+                Jori
+              </span>
             </h1>
             <h1 className='slide-right font-bold' id='job-title'>
               <FormattedMessage id='introJob' defaultMessage='Web Developer & Software Engineer' />
@@ -74,151 +76,45 @@ const MainContent = ({ showBackground, translation, projects }) => {
           </div>
           {/* About */}
           <div className='text-center' id='about'>
-            <h1 className='my-4 text-5xl font-bold leading-tight'>
+            <h1 className='my-4 text-5xl font-bold leading-tight  text-skills'>
               <FormattedMessage id='about' defaultMessage='About' />
             </h1>
             <div className='text-box justify-center'>
-              <p className='text-base text-gray-300'>{translation.description}</p>
+              <p className='text-wrap text-lg text-gray-300'>{translation.description}</p>
             </div>
             {/* First row of skills */}
-            <div className='flex justify-around' style={{ marginTop: '40px' }}>
-              <div className='tooltip'>
-                <Image
-                  className='shaky'
-                  width={80}
-                  height={80}
-                  src={'https://skillicons.dev/icons?i=js'}
-                  alt='Javascript'
-                />
-                <span style={{ marginTop: '40px', left: '-20px' }} className='tooltiptext'>
-                  JavaScript
-                </span>
-              </div>
-              <div className='tooltip'>
-                <Image
-                  className='shaky'
-                  width={80}
-                  height={80}
-                  src={'https://skillicons.dev/icons?i=vue'}
-                  alt='Vue icon'
-                />
-                <span style={{ marginTop: '40px', left: '-20px' }} className='tooltiptext'>
-                  Vue 2
-                </span>
-              </div>
-              <div className='tooltip'>
-                <Image
-                  className='shaky'
-                  width={80}
-                  height={80}
-                  src={'https://skillicons.dev/icons?i=mongodb'}
-                  alt='MongoDB icon'
-                />
-
-                <span style={{ marginTop: '40px', left: '-20px' }} className='tooltiptext'>
-                  MongoDB
-                </span>
-              </div>
-
-              <div className='tooltip'>
-                <Image
-                  className='shaky'
-                  width={80}
-                  height={80}
-                  src={'https://skillicons.dev/icons?i=css'}
-                  alt='Css icon'
-                />
-                <span style={{ marginTop: '40px', left: '-20px' }} className='tooltiptext'>
-                  CSS
-                </span>
-              </div>
-              <div className='tooltip'>
-                <Image
-                  className='shaky'
-                  width={80}
-                  height={80}
-                  src={'https://skillicons.dev/icons?i=git'}
-                  alt='Git icon'
-                />
-                <span style={{ marginTop: '40px', left: '-20px' }} className='tooltiptext'>
-                  Git
-                </span>
-              </div>
+            <div className='flex justify-around' style={{ marginTop: '80px' }}>
+              {skills.primary.map((skill, index) => (
+                <div key={index}>
+                  <Image className='shaky' width={80} height={80} src={skill.icon} alt={skill.name} />
+                  <p className='font-semibold text-skills'>{skill.name}</p>
+                </div>
+              ))}
             </div>
             {/* Second row of skills */}
             <div className='flex justify-around' style={{ margin: '80px' }}>
-              <div className='tooltip'>
-                <Image
-                  className='shaky'
-                  width={60}
-                  height={60}
-                  src={'https://skillicons.dev/icons?i=react'}
-                  alt='React icon'
-                />
-                <span style={{ marginTop: '20px', left: '-30px' }} className='tooltiptext'>
-                  React
-                </span>
-              </div>
-              <div className='tooltip'>
-                <Image
-                  className='shaky'
-                  width={60}
-                  height={60}
-                  src={'https://skillicons.dev/icons?i=python'}
-                  alt='Python icon'
-                />
-                <span style={{ marginTop: '20px', left: '-30px' }} className='tooltiptext'>
-                  Python
-                </span>
-              </div>
-              <div className='tooltip'>
-                <Image
-                  className='shaky'
-                  width={60}
-                  height={60}
-                  src={'https://skillicons.dev/icons?i=sqlite'}
-                  alt='Sqlite icon'
-                />
-                <span style={{ marginTop: '20px', left: '-30px' }} className='tooltiptext'>
-                  SQL (Sqlite, oracle sql etc.)
-                </span>
-              </div>
-              <div className='tooltip'>
-                <Image
-                  className='shaky'
-                  width={60}
-                  height={60}
-                  src={'https://skillicons.dev/icons?i=ts'}
-                  alt='Typescript icon'
-                />
-                <span style={{ marginTop: '20px', left: '-30px' }} className='tooltiptext'>
-                  TypeScript
-                </span>
-              </div>
+              {skills.secondary.map((skill, index) => (
+                <div key={index}>
+                  <Image className='shaky' width={60} height={60} src={skill.icon} alt={skill.name} />
+                  <p className='font-semibold text-skills'>{skill.name}</p>
+                </div>
+              ))}
             </div>
           </div>
           {/* Projects */}
           <div className='text-center'>
-            <h1 className='my-4 text-5xl font-bold leading-tight'>
+            <h1 className='my-4 text-5xl font-bold leading-tight  text-skills'>
               <FormattedMessage id='projectsTitle' defaultMessage='Projects' />
             </h1>
           </div>
           <div>
             {projects.map((project, index) => (
-              <Project
-                key={index}
-                name={project.name}
-                imageLink={project.imageLink}
-                imageAlt={project.imageAlt}
-                description={project.description}
-                visitLink={project.visitLink}
-                githubLink={project.githubLink}
-                stack={project.stack}
-              />
+              <Project key={index} project={project} />
             ))}
           </div>
+          {/* Contact */}
           <div className='mt-10 flex flex-col'>
-            <h1 className='my-4 content-center text-center text-5xl font-bold'>
+            <h1 className='my-4 content-center text-center text-5xl font-bold  text-skills'>
               <FormattedMessage id='contact' defaultMessage='Contact' />
             </h1>
             <div className='m-10 p-10 text-center'>
@@ -261,23 +157,7 @@ export default function Page() {
   const [locale, setLocale] = useState('en')
   const [lang, setLang] = useState(English)
   const [translation, setTranslation] = useState(en)
-
-  const changeLanguage = () => {
-    setLang(lang == Finnish ? English : Finnish)
-    setLocale(locale == 'fi' ? 'en' : 'fi')
-    setTranslation(locale == 'fi' ? en : fi)
-  }
-
   const backgroundColor = '#12071f'
-
-  useLayoutEffect(() => {
-    document.body.style.backgroundColor = backgroundColor
-  })
-
-  const toggleBackground = () => {
-    setShowBackground(showBackground === true ? false : true)
-  }
-
   const projects = [
     {
       name: 'WebGIS Silkroad',
@@ -309,7 +189,7 @@ export default function Page() {
       ],
     },
     {
-      name: 'This Portfolio Website',
+      name: 'Portfolio',
       imageLink: '/img/Portfolio_Example.png',
       imageAlt: 'Image of this portfolio project',
       description: translation.portfolioDescription,
@@ -323,6 +203,35 @@ export default function Page() {
       ],
     },
   ]
+  const primarySkills = [
+    { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js' },
+    { name: 'Vue 2', icon: 'https://skillicons.dev/icons?i=vue' },
+    { name: 'MongoDB', icon: 'https://skillicons.dev/icons?i=mongodb' },
+    { name: 'CSS', icon: 'https://skillicons.dev/icons?i=css' },
+    { name: 'Git', icon: 'https://skillicons.dev/icons?i=git' },
+  ]
+
+  const secondarySkills = [
+    { name: 'React', icon: 'https://skillicons.dev/icons?i=react' },
+    { name: 'Python', icon: 'https://skillicons.dev/icons?i=python' },
+    { name: 'SQL', icon: 'https://skillicons.dev/icons?i=sqlite' },
+    { name: 'TypeScript', icon: 'https://skillicons.dev/icons?i=ts' },
+  ]
+  const skills = { primary: primarySkills, secondary: secondarySkills }
+
+  const changeLanguage = () => {
+    setLang(lang == Finnish ? English : Finnish)
+    setLocale(locale == 'fi' ? 'en' : 'fi')
+    setTranslation(locale == 'fi' ? en : fi)
+  }
+
+  useLayoutEffect(() => {
+    document.body.style.backgroundColor = backgroundColor
+  })
+
+  const toggleBackground = () => {
+    setShowBackground(showBackground === true ? false : true)
+  }
 
   return (
     <>
@@ -343,6 +252,7 @@ export default function Page() {
           toggleBackground={toggleBackground}
           showBackground={showBackground}
           projects={projects}
+          skills={skills}
         ></MainContent>
       </IntlProvider>
     </>

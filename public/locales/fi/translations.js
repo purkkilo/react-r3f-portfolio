@@ -9,7 +9,7 @@ const description =
   `
   const portfolioDescription = `Verkkosivusto tehty React, Next.js ja TailwindCSS teknologioilla.
   Taustan "tähdet" on tehty Three.js ja React-three-fiber:llä.
-  Sivusto on tehty esittelemään taitojani ja projektejani ja on saatavilla englanniksi ja suomeksi.`
+  Sivusto on tehty esittelemään taitojani ja projektejani. Sivu on saatavilla englanniksi sekä suomeksi.`
 
 export const fi = {
   description,
