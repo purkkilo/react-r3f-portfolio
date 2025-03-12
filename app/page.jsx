@@ -57,13 +57,13 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
         <div className='my-20 flex flex-col' id='main-content'>
           {/* Intro */}
           <div className='intro-div slide-right text-center'>
-            <h1 className='my-4 text-5xl leading-tight '>
+            <h1 className='my-4 text-5xl leading-tight text-blue-300'>
               <FormattedMessage id='introMessage' defaultMessage='Hey, I am' />
               <span id='name-title' className='text-skills' style={{ marginLeft: '15px' }}>
                 Jori
               </span>
             </h1>
-            <h1 className='slide-right font-bold' id='job-title'>
+            <h1 className='slide-right font-bold text-blue-300' id='job-title'>
               <FormattedMessage id='introJob' defaultMessage='Web Developer & Software Engineer' />
             </h1>
             <div className='flex flex-row items-center justify-center' id='learn-button'>

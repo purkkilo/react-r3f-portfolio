@@ -84,7 +84,6 @@
 
   #job-title {
     font-size: 30px;
-    color: #887dff;
     text-align: center;
     text-decoration: wavy;
     margin-bottom: 30px;
@@ -108,7 +107,7 @@
   #learn-button:hover {
     transition-property: color;
     transition-duration: 1s;
-    color: #7700ff;
+    color: #00fffc;
   }
 
   #link-button {
@@ -228,10 +227,10 @@
 
   .text-skills {
     text-shadow:
-      0 0 2px #00fffc,
-      0 0 30px #00fffc,
-      0px 0px 5px #00fffc,
-      0 0 150px #00fffc;
+      0 0 1px #00fffc,
+      0 0 5px #00fffc,
+      0px 0px 1px #00fffc,
+      0 0 120px #00fffc;
     color: #ffffff;
   }
 
