@@ -1,5 +1,14 @@
   const description =
-    "I'm calm person with high work ethic and passion for web- and software development. I might lack professional experience, but my time in LUT university has prepared me for many scenarios. Frontend is my thing, but I'm always prepared to learn more. I have my bachelors in techonology from computer science, and I'm looking for a subject to finish my master's (Software Engineering and Digital Transformation). On my free time I like to go to gym, watch movies and solve all kinds of puzzles, from ARGs and coding puzzles to chess."
+    `I'm calm person with high work ethic and passion
+    for web- and software development.
+    My time in LUT university, and developing my own projects,
+    has prepared me for many scenarios.
+    Frontend is my thing, but I'm always prepared to learn more.
+    I have my bachelor's in techonology from computer science,
+    and I'm looking for a subject to finish my master's
+    (Software Engineering and Digital Transformation).
+    On my free time I like to go to gym, watch movies
+    and solve all kinds of puzzles, from ARGs and coding puzzles to chess.`
 
   const fisustajaDescription = `Application that is made for
   hosting fishing competitions (in Cup type setting, or standalone).
