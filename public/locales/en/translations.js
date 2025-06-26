@@ -19,14 +19,19 @@
   Made for university's GIS (Geographic Information Systems) course. From the map you can find their coordinates,
   and 3 of the closest hotels for most of the cities.
   `
-
   const portfolioDescription = `Web portfolio made with React, Next.js and TailwindCSS.
   Backgound "stars" were made with Three.js and React-three-fiber.
   The site is made to showcase my skills and projects and is available in English and Finnish.`
+
+  const wordPressDescription = `WordPress site made for PPK Group OY.
+  The site is made with Otter Blocks plugin.
+  The purpose of the site is to showcase the company, its services and contact information.
+  Only available in Finnish.`
 
   export const en = {
   description,
   fisustajaDescription,
   webgisDescription,
-  portfolioDescription
+  portfolioDescription,
+  wordPressDescription
 }

@@ -5,6 +5,7 @@
 @layer base {
   * {
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
   }
   html,
   body,
@@ -17,11 +18,30 @@
   }
 
   @keyframes slide-from-right {
-    from {
-      transform: translate(100%, 100%);
+    0% {
+      transform: translate(100%, 0);
       opacity: 0;
     }
-    to {
+    80% {
+      transform: translate(0, 0);
+      opacity: 0.1;
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-from-left {
+    0% {
+      transform: translate(-200%, 0);
+      opacity: 0;
+    }
+    80% {
+      transform: translate(0, 0);
+      opacity: 0.4;
+    }
+    100% {
       transform: translate(0, 0);
       opacity: 1;
     }
@@ -168,11 +188,10 @@
   }
 
   .image-title {
-    background: rgba(0, 0, 0, 0.6);
     font-size: 30px;
     padding: 20px;
     text-align: center;
-    width: 60%;
+    width: 80%;
     margin: auto;
   }
 
@@ -199,24 +218,78 @@
     margin: auto;
     width: auto;
     height: auto;
-    transition: all 0.5s ease;
   }
 
   .project-image:hover {
-    transform: scale(1.1);
     box-shadow: 0 0 20px rgba(66, 33, 255, 1);
   }
 
-  .shaky:hover {
-    animation-name: shake;
-    animation-duration: 0.1s;
-    animation-iteration-count: infinite;
-  }
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-in {
+      /* Works in chrome */
+      opacity: 0;
+      animation: fade-in-scroll linear forwards;
+      animation-timeline: view();
+      animation-range: entry 200px;
+    }
 
-  .slide-right {
-    animation-name: slide-from-right;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
+    .shaky:hover {
+      animation-name: shake;
+      animation-duration: 0.1s;
+      animation-iteration-count: infinite;
+    }
+
+    .slide-left {
+      animation-name: slide-from-left;
+      animation-duration: 2s;
+      animation-iteration-count: 1;
+    }
+
+    .slide-right {
+      animation-name: slide-from-right;
+      animation-duration: 2s;
+      animation-iteration-count: 1;
+    }
+
+    .scrolling-horizontal[data-animated='true'] {
+      overflow: hidden;
+    }
+
+    .scrolling-horizontal[data-animated='true'] .scroller-inner {
+      width: max-content;
+      flex-wrap: nowrap;
+      animation: scrolling-horizontal linear;
+      animation-timeline: scroll(root);
+    }
+
+    @keyframes scrolling-horizontal {
+      to {
+        transform: translate(calc(-50% - 0.5rem));
+      }
+    }
+
+    .fade-out {
+      animation: fade-out linear forwards;
+      animation-timeline: view();
+      animation-range: exit -300px;
+    }
+
+    @keyframes fade-in-scroll {
+      from {
+        scale: 0.8;
+        opacity: 0;
+      }
+      to {
+        scale: 1;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fade-out {
+      to {
+        opacity: 0;
+      }
+    }
   }
 
   .text-box {

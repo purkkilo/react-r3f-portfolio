@@ -38,7 +38,7 @@ const LinkButton = ({ href, children, isGithub }) => {
 
 export const Project = ({ project }) => {
   return (
-    <div className='m-2 flex-col rounded-lg bg-[#1f2e48] p-5 shadow-lg sm:m-10 sm:p-10'>
+    <div className='m-2 flex-col rounded-lg bg-[#1f2e48] p-5 shadow-lg sm:m-10 sm:p-10 fade-in'>
       <div className='image-title rounded-lg'>{project.name}</div>
       <Image
         className='project-image rounded-lg'
@@ -48,13 +48,13 @@ export const Project = ({ project }) => {
         alt={project.imageAlt}
       ></Image>
 
-      <div className='justify-items-center bg-[#0c121d] p-3 text-center sm:p-10'>
+      <div className='justify-items-center p-3 text-center sm:p-10'>
         <p className='text-gray-300'>{project.description}</p>
-        <div className='flex justify-around rounded-lg bg-[#0c121d] sm:p-5' style={{ marginTop: '40px' }}>
+        <div className='flex justify-around rounded-lg sm:p-5' style={{ marginTop: '40px' }}>
           {project.stack.map((tech, i) => (
-            <div key={i}>
-              <Image width={100} height={100} src={tech.icon} alt='Javascript' />
-              <p className='font-semibold text-skills'>{tech.name}</p>
+            <div key={i} style={{ margin: '10px' }} className='flex flex-col items-center'>
+              <Image width={100} height={100} src={tech.icon} alt={tech.name} />
+              <p className='font-semibold'>{tech.name}</p>
             </div>
           ))}
         </div>
@@ -62,10 +62,13 @@ export const Project = ({ project }) => {
           <LinkButton href={project.visitLink} isGithub={false}>
             <FormattedMessage id='visit' defaultMessage='Visit' />
           </LinkButton>
-
-          <LinkButton href={project.githubLink} isGithub={true}>
-            <FormattedMessage id='learn-more' defaultMessage='Learn More' />
-          </LinkButton>
+          {project.githubLink ? (
+            <LinkButton href={project.githubLink} isGithub={true}>
+              <FormattedMessage id='learn-more' defaultMessage='Learn More' />
+            </LinkButton>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>

@@ -63,7 +63,7 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
                 Jori
               </span>
             </h1>
-            <h1 className='slide-right font-bold text-blue-300' id='job-title'>
+            <h1 className='slide-left font-bold text-blue-300' id='job-title'>
               <FormattedMessage id='introJob' defaultMessage='Web Developer & Software Engineer' />
             </h1>
             <div className='flex flex-row items-center justify-center' id='learn-button'>
@@ -76,27 +76,36 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
           </div>
           {/* About */}
           <div className='text-center' id='about'>
-            <h1 className='my-4 text-5xl font-bold leading-tight  text-skills'>
+            <h1 className='my-4 text-5xl font-bold leading-tight text-skills'>
               <FormattedMessage id='about' defaultMessage='About' />
             </h1>
-            <div className='text-box justify-center'>
+            <div className='text-box justify-center chrome'>
               <p className='text-wrap text-lg text-gray-300'>{translation.description}</p>
             </div>
             {/* First row of skills */}
-            <div className='flex justify-around' style={{ marginTop: '80px' }}>
+            <div className='flex justify-around scrolling-horizontal' style={{ marginTop: '80px' }}>
               {skills.primary.map((skill, index) => (
-                <div key={index}>
+                <div key={index} className='flex flex-col items-center scroller-inner'>
                   <Image className='shaky' width={80} height={80} src={skill.icon} alt={skill.name} />
-                  <p className='font-semibold text-skills'>{skill.name}</p>
+                  <p className='font-semibold'>{skill.name}</p>
                 </div>
               ))}
             </div>
             {/* Second row of skills */}
             <div className='flex justify-around' style={{ margin: '80px' }}>
               {skills.secondary.map((skill, index) => (
-                <div key={index}>
+                <div key={index} className='flex flex-col items-center'>
                   <Image className='shaky' width={60} height={60} src={skill.icon} alt={skill.name} />
-                  <p className='font-semibold text-skills'>{skill.name}</p>
+                  <p className='font-semibold'>{skill.name}</p>
+                </div>
+              ))}
+            </div>
+            {/* Other skills */}
+            <div className='flex justify-around' style={{ margin: '40px' }}>
+              {skills.other.map((skill, index) => (
+                <div key={index} className='flex flex-col items-center'>
+                  <Image className='shaky' width={60} height={60} src={skill.icon} alt={skill.name} />
+                  <p className='font-semibold'>{skill.name}</p>
                 </div>
               ))}
             </div>
@@ -114,7 +123,7 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
           </div>
           {/* Contact */}
           <div className='mt-10 flex flex-col'>
-            <h1 className='my-4 content-center text-center text-5xl font-bold  text-skills'>
+            <h1 className='my-4 content-center text-center text-5xl font-bold text-skills'>
               <FormattedMessage id='contact' defaultMessage='Contact' />
             </h1>
             <div className='m-10 p-10 text-center'>
@@ -161,6 +170,8 @@ export default function Page() {
   const projects = [
     {
       name: 'WebGIS Silkroad',
+      dateCompleted: '3.11.2023',
+      dateUpdated: '12.2.2025',
       imageLink: '/img/WebGIS_Example.png',
       imageAlt: 'Image of WebGIS project',
       description: translation.webgisDescription,
@@ -175,6 +186,8 @@ export default function Page() {
     },
     {
       name: 'Fisustaja',
+      dateCompleted: '1.4.2023',
+      dateUpdated: '14.6.2025',
       imageLink: '/img/Fisustaja_Example.png',
       imageAlt: 'Image of Fisustaja project',
       description: translation.fisustajaDescription,
@@ -190,6 +203,8 @@ export default function Page() {
     },
     {
       name: 'Portfolio',
+      dateCompleted: '23.3.2025',
+      dateUpdated: '26.6.2025',
       imageLink: '/img/Portfolio_Example.png',
       imageAlt: 'Image of this portfolio project',
       description: translation.portfolioDescription,
@@ -200,6 +215,23 @@ export default function Page() {
         { name: 'Next.js', icon: 'https://skillicons.dev/icons?i=next' },
         { name: 'TailwindCSS', icon: 'https://skillicons.dev/icons?i=tailwindcss' },
         { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js' },
+      ],
+    },
+    {
+      name: 'Wordpress Homepage for PPK Group OY',
+      dateCompleted: '19.6.2025',
+      dateUpdated: '19.6.2025',
+      imageLink: '/img/Wordpress_Example.png',
+      imageAlt: 'Image of the PPK Group OY homepage',
+      description: 'Wordpress homepage for PPK Group OY',
+      visitLink: 'https://ppkgroup.fi/',
+      description: translation.wordPressDescription,
+      githubLink: '',
+      stack: [
+        { name: 'WordPress', icon: 'https://skillicons.dev/icons?i=wordpress' },
+        { name: 'Otter Blocks', icon: 'https://skillicons.dev/icons?i=wordpress' },
+        { name: 'HTML', icon: 'https://skillicons.dev/icons?i=html' },
+        { name: 'CSS', icon: 'https://skillicons.dev/icons?i=css' },
       ],
     },
   ]
@@ -217,7 +249,10 @@ export default function Page() {
     { name: 'SQL', icon: 'https://skillicons.dev/icons?i=sqlite' },
     { name: 'TypeScript', icon: 'https://skillicons.dev/icons?i=ts' },
   ]
-  const skills = { primary: primarySkills, secondary: secondarySkills }
+
+  const otherSkills = [{ name: 'WordPress', icon: 'https://skillicons.dev/icons?i=wordpress' }]
+
+  const skills = { primary: primarySkills, secondary: secondarySkills, other: otherSkills }
 
   const changeLanguage = () => {
     setLang(lang == Finnish ? English : Finnish)

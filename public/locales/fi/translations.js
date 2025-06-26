@@ -18,9 +18,15 @@ const portfolioDescription = `Verkkosivusto tehty React, Next.js ja TailwindCSS 
   Taustan "tähdet" on tehty Three.js ja React-three-fiber:llä.
   Sivusto on tehty esittelemään taitojani ja projektejani. Sivu on saatavilla englanniksi sekä suomeksi.`
 
+  const wordPressDescription = `PPK Group OY:lle suunnitellut ja toteutetut kotisivut.
+  Sivusto on toteutettu WordPressillä hyödyntäen Otter Blocks lisäosaa.
+  Sivuston tarkoitus on esitellä yritystä, sen palveluita ja yhteystietoja.`
+
+
 export const fi = {
   description,
   fisustajaDescription,
   webgisDescription,
-  portfolioDescription
+  portfolioDescription,
+  wordPressDescription
 }
