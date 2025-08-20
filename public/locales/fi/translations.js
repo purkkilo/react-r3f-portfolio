@@ -18,9 +18,15 @@ const portfolioDescription = `Verkkosivusto tehty React, Next.js ja TailwindCSS 
   Taustan "tähdet" on tehty Three.js ja React-three-fiber:llä.
   Sivusto on tehty esittelemään taitojani ja projektejani. Sivu on saatavilla englanniksi sekä suomeksi.`
 
-  const wordPressDescription = `PPK Group OY:lle suunnitellut ja toteutetut kotisivut.
-  Sivusto on toteutettu WordPressillä hyödyntäen Otter Blocks lisäosaa.
-  Sivuston tarkoitus on esitellä yritystä, sen palveluita ja yhteystietoja.`
+const wordPressDescription = `PPK Group OY:lle suunnitellut ja toteutetut kotisivut.
+Sivusto on toteutettu WordPressillä hyödyntäen Otter Blocks lisäosaa.
+Sivuston tarkoitus on esitellä yritystä, sen palveluita ja yhteystietoja.`
+
+const electricityWidgetDescription = `Sähkön hinta widget on verkkosovellus,
+  joka mahdollistaa käyttäjien tarkastella sähkön hintoja Suomessa.
+  Sovelluksessa on widget, joka voidaan lisätä käyttäjän kotinäyttöön,
+  ja se päivittää hinnat tunnin välein. Testattu Androidilla ja verkkoselaimella (iOS ei tuettu)
+`
 
 
 export const fi = {
@@ -28,5 +34,6 @@ export const fi = {
   fisustajaDescription,
   webgisDescription,
   portfolioDescription,
-  wordPressDescription
+  wordPressDescription,
+  electricityWidgetDescription
 }

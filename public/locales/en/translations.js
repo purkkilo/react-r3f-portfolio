@@ -28,10 +28,17 @@
   The purpose of the site is to showcase the company, its services and contact information.
   Only available in Finnish.`
 
+
+  const electricityWidgetDescription = `Electricity widget is a web application
+  that allows users to view current electricity prices in Finland.
+  The app has a widget that can be added to the user's home screen,
+  and it updates the prices every hour. Tested on Android and web browser (iOS excluded)
+  `
   export const en = {
   description,
   fisustajaDescription,
   webgisDescription,
   portfolioDescription,
-  wordPressDescription
+  wordPressDescription,
+  electricityWidgetDescription,
 }

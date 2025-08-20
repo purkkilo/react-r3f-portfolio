@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import { FaArrowUp, FaGithub, FaLink } from 'react-icons/fa'
 import { FormattedMessage } from 'react-intl'
+import StackIcon from 'tech-stack-icons'
 
 const LinkButton = ({ href, children, isGithub }) => {
   if (isGithub) {
@@ -53,15 +54,19 @@ export const Project = ({ project }) => {
         <div className='flex justify-around rounded-lg sm:p-5' style={{ marginTop: '40px' }}>
           {project.stack.map((tech, i) => (
             <div key={i} style={{ margin: '10px' }} className='flex flex-col items-center'>
-              <Image width={100} height={100} src={tech.icon} alt={tech.name} />
+              <StackIcon name={tech.icon} style={{ height: '70px', width: '70px' }} />
               <p className='font-semibold'>{tech.name}</p>
             </div>
           ))}
         </div>
         <div style={{ marginTop: '20px' }} className='flex content-start justify-around'>
-          <LinkButton href={project.visitLink} isGithub={false}>
-            <FormattedMessage id='visit' defaultMessage='Visit' />
-          </LinkButton>
+          {project.visitLink ? (
+            <LinkButton href={project.visitLink} isGithub={false}>
+              <FormattedMessage id='visit' defaultMessage='Visit' />
+            </LinkButton>
+          ) : (
+            <></>
+          )}
           {project.githubLink ? (
             <LinkButton href={project.githubLink} isGithub={true}>
               <FormattedMessage id='learn-more' defaultMessage='Learn More' />

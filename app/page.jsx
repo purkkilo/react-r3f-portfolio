@@ -14,6 +14,7 @@ import FlagEn from '../public/img/flags/gb.svg'
 import { fi } from 'public/locales/fi/translations'
 import { en } from 'public/locales/en/translations'
 import { FaArrowDown, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
+import StackIcon from 'tech-stack-icons'
 
 const Stars = dynamic(() => import('@/components/canvas/Stars').then((mod) => mod.Stars), {
   ssr: false,
@@ -86,7 +87,7 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
             <div className='flex justify-around scrolling-horizontal' style={{ marginTop: '80px' }}>
               {skills.primary.map((skill, index) => (
                 <div key={index} className='flex flex-col items-center scroller-inner'>
-                  <Image className='shaky' width={80} height={80} src={skill.icon} alt={skill.name} />
+                  <StackIcon name={skill.icon} style={{ height: '100px', width: '100px' }} />
                   <p className='font-semibold'>{skill.name}</p>
                 </div>
               ))}
@@ -95,23 +96,23 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
             <div className='flex justify-around' style={{ margin: '80px' }}>
               {skills.secondary.map((skill, index) => (
                 <div key={index} className='flex flex-col items-center'>
-                  <Image className='shaky' width={60} height={60} src={skill.icon} alt={skill.name} />
+                  <StackIcon name={skill.icon} style={{ height: '80px', width: '80px' }} />
                   <p className='font-semibold'>{skill.name}</p>
                 </div>
               ))}
             </div>
             {/* Other skills */}
-            <div className='flex justify-around' style={{ margin: '40px' }}>
+            <div className='flex justify-around' style={{ margin: '80px' }}>
               {skills.other.map((skill, index) => (
                 <div key={index} className='flex flex-col items-center'>
-                  <Image className='shaky' width={60} height={60} src={skill.icon} alt={skill.name} />
+                  <StackIcon name={skill.icon} style={{ height: '60px', width: '60px' }} />
                   <p className='font-semibold'>{skill.name}</p>
                 </div>
               ))}
             </div>
           </div>
           {/* Projects */}
-          <div className='text-center'>
+          <div className='text-center' style={{ marginTop: '400px' }}>
             <h1 className='my-4 text-5xl font-bold leading-tight  text-skills'>
               <FormattedMessage id='projectsTitle' defaultMessage='Projects' />
             </h1>
@@ -178,10 +179,10 @@ export default function Page() {
       visitLink: 'https://webgis-silkroad.onrender.com/',
       githubLink: 'https://github.com/purkkilo/WebGIS-Silkroad',
       stack: [
-        { name: 'Vue 2', icon: 'https://skillicons.dev/icons?i=vue' },
-        { name: 'Vuetify', icon: 'https://skillicons.dev/icons?i=vuetify' },
-        { name: 'Vue CLI', icon: 'https://skillicons.dev/icons?i=vue' },
-        { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js' },
+        { name: 'Vue 2', icon: 'vuejs' },
+        { name: 'Vuetify', icon: 'vuejs' },
+        { name: 'Vue CLI', icon: 'vuejs' },
+        { name: 'JavaScript', icon: 'js' },
       ],
     },
     {
@@ -194,11 +195,11 @@ export default function Page() {
       visitLink: 'https://fisustaja.onrender.com/',
       githubLink: 'https://github.com/purkkilo/Fisustaja',
       stack: [
-        { name: 'Vue 2', icon: 'https://skillicons.dev/icons?i=vue' },
-        { name: 'Vuetify', icon: 'https://skillicons.dev/icons?i=vuetify' },
-        { name: 'MongoDB', icon: 'https://skillicons.dev/icons?i=mongodb' },
-        { name: 'Node.js', icon: 'https://skillicons.dev/icons?i=nodejs' },
-        { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js' },
+        { name: 'Vue 2', icon: 'vuejs' },
+        { name: 'Vuetify', icon: 'vuejs' },
+        { name: 'MongoDB', icon: 'mongodb' },
+        { name: 'Node.js', icon: 'nodejs' },
+        { name: 'JavaScript', icon: 'js' },
       ],
     },
     {
@@ -211,10 +212,10 @@ export default function Page() {
       visitLink: '#main-content',
       githubLink: 'https://github.com/purkkilo/react-r3f-portfolio',
       stack: [
-        { name: 'React', icon: 'https://skillicons.dev/icons?i=react' },
-        { name: 'Next.js', icon: 'https://skillicons.dev/icons?i=next' },
-        { name: 'TailwindCSS', icon: 'https://skillicons.dev/icons?i=tailwindcss' },
-        { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js' },
+        { name: 'React', icon: 'react' },
+        { name: 'Next.js', icon: 'nextjs' },
+        { name: 'TailwindCSS', icon: 'tailwindcss' },
+        { name: 'JavaScript', icon: 'js' },
       ],
     },
     {
@@ -228,29 +229,45 @@ export default function Page() {
       description: translation.wordPressDescription,
       githubLink: '',
       stack: [
-        { name: 'WordPress', icon: 'https://skillicons.dev/icons?i=wordpress' },
-        { name: 'Otter Blocks', icon: 'https://skillicons.dev/icons?i=wordpress' },
-        { name: 'HTML', icon: 'https://skillicons.dev/icons?i=html' },
-        { name: 'CSS', icon: 'https://skillicons.dev/icons?i=css' },
+        { name: 'WordPress', icon: 'wordpress' },
+        { name: 'Otter Blocks', icon: 'wordpress' },
+        { name: 'HTML', icon: 'html5' },
+        { name: 'CSS', icon: 'css3' },
+      ],
+    },
+    {
+      name: 'Electricity Widget ',
+      dateCompleted: '19.08.2025',
+      dateUpdated: '14.3.2025',
+      imageLink: '/img/Electricity_Example.jpg',
+      imageAlt: 'Image of Electricity Widget project',
+      description: translation.webgisDescription,
+      visitLink: '',
+      githubLink: 'https://github.com/purkkilo/electricity-widget',
+      stack: [
+        { name: 'React Native', icon: 'react' },
+        { name: 'Expo', icon: 'react' },
+        { name: 'Typescript', icon: 'typescript' },
+        { name: 'Jest', icon: 'jest' },
       ],
     },
   ]
   const primarySkills = [
-    { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js' },
-    { name: 'Vue 2', icon: 'https://skillicons.dev/icons?i=vue' },
-    { name: 'MongoDB', icon: 'https://skillicons.dev/icons?i=mongodb' },
-    { name: 'CSS', icon: 'https://skillicons.dev/icons?i=css' },
-    { name: 'Git', icon: 'https://skillicons.dev/icons?i=git' },
+    { name: 'JavaScript', icon: 'js' },
+    { name: 'Vue 2', icon: 'vuejs' },
+    { name: 'MongoDB', icon: 'mongodb' },
+    { name: 'CSS', icon: 'css3' },
+    { name: 'Git', icon: 'git' },
   ]
 
   const secondarySkills = [
-    { name: 'React', icon: 'https://skillicons.dev/icons?i=react' },
-    { name: 'Python', icon: 'https://skillicons.dev/icons?i=python' },
-    { name: 'SQL', icon: 'https://skillicons.dev/icons?i=sqlite' },
-    { name: 'TypeScript', icon: 'https://skillicons.dev/icons?i=ts' },
+    { name: 'React', icon: 'react' },
+    { name: 'Python', icon: 'python' },
+    { name: 'SQL', icon: 'mysql' },
+    { name: 'TypeScript', icon: 'typescript' },
   ]
 
-  const otherSkills = [{ name: 'WordPress', icon: 'https://skillicons.dev/icons?i=wordpress' }]
+  const otherSkills = [{ name: 'WordPress', icon: 'wordpress' }]
 
   const skills = { primary: primarySkills, secondary: secondarySkills, other: otherSkills }
 
