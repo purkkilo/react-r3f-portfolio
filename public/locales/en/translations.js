@@ -34,6 +34,9 @@
   The app has a widget that can be added to the user's home screen,
   and it updates the prices every hour. Tested on Android and web browser (iOS excluded)
   `
+
+  const receiptShareDescription = `With this app you can read price information from receipts, modify them manually, add your own expenses, and share these expenses product by product.`
+
   export const en = {
   description,
   fisustajaDescription,
@@ -41,4 +44,5 @@
   portfolioDescription,
   wordPressDescription,
   electricityWidgetDescription,
+  receiptShareDescription
 }

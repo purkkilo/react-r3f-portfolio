@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import { Suspense, useLayoutEffect } from 'react'
+import { Suspense, useEffect, useLayoutEffect } from 'react'
 import Loading from '@/components/other/Loading'
 import { IntlProvider } from 'react-intl'
 import { FormattedMessage } from 'react-intl'
@@ -50,6 +50,21 @@ const MenuButtons = ({ locale, changeLanguage, toggleBackground }) => {
 }
 
 const MainContent = ({ showBackground, translation, projects, skills }) => {
+  const [shownProjects, setShownProjects] = useState(projects)
+  const types = [...new Set(projects.map((p) => p.type))]
+
+  const [technologies, setTechonologies] = useState(
+    types.map((t) => {
+      return { type: t, selected: true }
+    }),
+  )
+  const [tempTechs, setTempTechs] = useState(technologies)
+
+  useEffect(() => {
+    setTechonologies(tempTechs)
+    setShownProjects(projects.filter((p) => tempTechs.find((t) => t.type == p.type).selected))
+  }, [tempTechs])
+
   if (showBackground) {
     return (
       // Main content
@@ -117,8 +132,32 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
               <FormattedMessage id='projectsTitle' defaultMessage='Projects' />
             </h1>
           </div>
+          <div className='text-center'>
+            <h1 className='my-4 text-2xl font-bold'>
+              <FormattedMessage id='technologiesTitle' defaultMessage='Technologies' />
+            </h1>
+          </div>
+          <div className='flex' style={{ padding: 20, alignSelf: 'center' }}>
+            {technologies.map((t, index) => (
+              <div
+                key={index}
+                style={{ padding: 30, margin: 10, borderRadius: 10, borderColor: t.selected ? 'green' : 'white' }}
+                className='border'
+                onClick={() => {
+                  t.selected = !t.selected
+                  setTempTechs((prev) => {
+                    const n = [...prev]
+                    n[index].selected = !n[index].selected
+                    return n
+                  })
+                }}
+              >
+                <p className='font-semibold'>{t.type.toUpperCase()}</p>
+              </div>
+            ))}
+          </div>
           <div>
-            {projects.map((project, index) => (
+            {shownProjects.map((project, index) => (
               <Project key={index} project={project} />
             ))}
           </div>
@@ -175,6 +214,7 @@ export default function Page() {
       dateUpdated: '12.2.2025',
       imageLink: '/img/WebGIS_Example.png',
       imageAlt: 'Image of WebGIS project',
+      type: 'web',
       description: translation.webgisDescription,
       visitLink: 'https://webgis-silkroad.onrender.com/',
       githubLink: 'https://github.com/purkkilo/WebGIS-Silkroad',
@@ -191,6 +231,7 @@ export default function Page() {
       dateUpdated: '14.6.2025',
       imageLink: '/img/Fisustaja_Example.png',
       imageAlt: 'Image of Fisustaja project',
+      type: 'web',
       description: translation.fisustajaDescription,
       visitLink: 'https://fisustaja.onrender.com/',
       githubLink: 'https://github.com/purkkilo/Fisustaja',
@@ -209,6 +250,7 @@ export default function Page() {
       imageLink: '/img/Portfolio_Example.png',
       imageAlt: 'Image of this portfolio project',
       description: translation.portfolioDescription,
+      type: 'web',
       visitLink: '#main-content',
       githubLink: 'https://github.com/purkkilo/react-r3f-portfolio',
       stack: [
@@ -224,6 +266,7 @@ export default function Page() {
       dateUpdated: '19.6.2025',
       imageLink: '/img/Wordpress_Example.png',
       imageAlt: 'Image of the PPK Group OY homepage',
+      type: 'web',
       description: 'Wordpress homepage for PPK Group OY',
       visitLink: 'https://ppkgroup.fi/',
       description: translation.wordPressDescription,
@@ -236,11 +279,12 @@ export default function Page() {
       ],
     },
     {
-      name: 'Electricity Widget ',
+      name: 'Electricity Widget',
       dateCompleted: '19.08.2025',
       dateUpdated: '14.3.2025',
       imageLink: '/img/Electricity_Example.jpg',
       imageAlt: 'Image of Electricity Widget project',
+      type: 'mobile',
       description: translation.webgisDescription,
       visitLink: '',
       githubLink: 'https://github.com/purkkilo/electricity-widget',
@@ -249,6 +293,23 @@ export default function Page() {
         { name: 'Expo', icon: 'react' },
         { name: 'Typescript', icon: 'typescript' },
         { name: 'Jest', icon: 'jest' },
+      ],
+    },
+    {
+      name: 'Receipt Share',
+      dateCompleted: '15.11.2025',
+      dateUpdated: '15.11.2025',
+      imageLink: '/img/ReceiptShare_Example.jpg',
+      imageAlt: 'Image of Receipt Share project',
+      type: 'mobile',
+      description: translation.receiptShareDescription,
+      visitLink: '',
+      githubLink: 'https://github.com/purkkilo/receipt-share',
+      stack: [
+        { name: 'React Native', icon: 'react' },
+        { name: 'Expo', icon: 'react' },
+        { name: 'Typescript', icon: 'typescript' },
+        { name: 'OCR (react-native-mlkit-ocr)', icon: 'js' },
       ],
     },
   ]

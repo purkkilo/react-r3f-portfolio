@@ -28,6 +28,9 @@ const electricityWidgetDescription = `Sähkön hinta widget on verkkosovellus,
   ja se päivittää hinnat tunnin välein. Testattu Androidilla ja verkkoselaimella (iOS ei tuettu)
 `
 
+const receiptShareDescription = `Tällä sovelluksella voit lukea tiedot kuitista digitaaliseen muotoon,
+muokata tai lisätä tuotteita manuaalisesti, lisätä omia kuluja, ja jakaa nämä kulut osallistujien kesken
+tuote kerrallaan`
 
 export const fi = {
   description,
@@ -35,5 +38,6 @@ export const fi = {
   webgisDescription,
   portfolioDescription,
   wordPressDescription,
-  electricityWidgetDescription
+  electricityWidgetDescription,
+  receiptShareDescription
 }
