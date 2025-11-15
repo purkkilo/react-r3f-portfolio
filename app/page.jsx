@@ -141,15 +141,21 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
             {technologies.map((t, index) => (
               <div
                 key={index}
-                style={{ padding: 30, margin: 10, borderRadius: 10, borderColor: t.selected ? 'green' : 'white' }}
-                className='border'
+                style={{
+                  cursor: 'pointer',
+                  padding: 30,
+                  margin: 10,
+                  borderRadius: 10,
+                  borderColor: t.selected ? 'green' : 'white',
+                }}
+                className='border hover:bg-green-800'
                 onClick={() => {
-                  t.selected = !t.selected
                   setTempTechs((prev) => {
                     const n = [...prev]
                     n[index].selected = !n[index].selected
                     return n
                   })
+                  t.selected = !t.selected
                 }}
               >
                 <p className='font-semibold'>{t.type.toUpperCase()}</p>
