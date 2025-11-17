@@ -150,6 +150,7 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
                 }}
                 className='border hover:bg-green-800'
                 onClick={() => {
+                  console.log('Clicked')
                   setTempTechs((prev) => {
                     const n = [...prev]
                     n[index].selected = !n[index].selected
