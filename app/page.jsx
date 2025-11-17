@@ -68,7 +68,7 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
     console.log('---------- filter ------')
     console.log(projects.filter((p) => tempTechs.find((t) => t.type == p.type).selected))
     setShownProjects(projects.filter((p) => tempTechs.find((t) => t.type == p.type).selected))
-  }, [technologies, projects, tempTechs])
+  }, [tempTechs])
 
   if (showBackground) {
     return (
@@ -155,13 +155,14 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
                 }}
                 className='border hover:bg-green-800'
                 onClick={() => {
-                  console.log('Clicked')
+                  console.log(t.selected)
+                  t.selected = !t.selected
+                  console.log(t.selected)
                   setTempTechs((prev) => {
                     const n = [...prev]
                     n[index].selected = !n[index].selected
                     return n
                   })
-                  t.selected = !t.selected
                 }}
               >
                 <p className='font-semibold'>{t.type.toUpperCase()}</p>
