@@ -63,6 +63,10 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
   useEffect(() => {
     console.log('useEffect')
     setTechonologies(tempTechs)
+    console.log(tempTechs), console.log('----------')
+    console.log(projects)
+    console.log('---------- filter ------')
+    console.log(projects.filter((p) => tempTechs.find((t) => t.type == p.type).selected))
     setShownProjects(projects.filter((p) => tempTechs.find((t) => t.type == p.type).selected))
   }, [technologies, projects, tempTechs])
 
