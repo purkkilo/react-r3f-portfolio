@@ -58,17 +58,6 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
       return { type: t, selected: true }
     }),
   )
-  const [tempTechs, setTempTechs] = useState(technologies)
-
-  useEffect(() => {
-    console.log('useEffect')
-    setTechonologies(tempTechs)
-    console.log(tempTechs), console.log('----------')
-    console.log(projects)
-    console.log('---------- filter ------')
-    console.log(projects.filter((p) => tempTechs.find((t) => t.type == p.type).selected))
-    setShownProjects(projects.filter((p) => tempTechs.find((t) => t.type == p.type).selected))
-  }, [tempTechs])
 
   if (showBackground) {
     return (
@@ -155,14 +144,8 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
                 }}
                 className='border hover:bg-green-800'
                 onClick={() => {
-                  console.log(t.selected)
                   t.selected = !t.selected
-                  console.log(t.selected)
-                  setTempTechs((prev) => {
-                    const n = [...prev]
-                    n[index].selected = !n[index].selected
-                    return n
-                  })
+                  setShownProjects(projects.filter((p) => technologies.find((t) => t.type == p.type).selected))
                 }}
               >
                 <p className='font-semibold'>{t.type.toUpperCase()}</p>
