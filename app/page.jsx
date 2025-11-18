@@ -1,20 +1,18 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import Image from 'next/image'
-import { Suspense, useEffect, useLayoutEffect } from 'react'
+import { Suspense, useLayoutEffect } from 'react'
 import Loading from '@/components/other/Loading'
 import { IntlProvider } from 'react-intl'
 import { FormattedMessage } from 'react-intl'
 import Finnish from '../public/locales/fi/translation.json'
 import English from '../public/locales/en/translation.json'
 import { useState } from 'react'
-import FlagFi from '../public/img/flags/fi.svg'
-import FlagEn from '../public/img/flags/gb.svg'
 import { fi } from 'public/locales/fi/translations'
 import { en } from 'public/locales/en/translations'
 import { FaArrowDown, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 import StackIcon from 'tech-stack-icons'
+import { MenuButtons } from '@/components/ui/MenuButtons'
 
 const Stars = dynamic(() => import('@/components/canvas/Stars').then((mod) => mod.Stars), {
   ssr: false,
@@ -26,28 +24,6 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
 const Project = dynamic(() => import('@/components/ui/Project').then((mod) => mod.Project), { ssr: false })
-
-const MenuButtons = ({ locale, changeLanguage, toggleBackground }) => {
-  return (
-    <div className='flex flex-row text-white' style={{ top: 20, marginLeft: 150, position: 'absolute', zIndex: 100 }}>
-      <button className='tooltip rounded-lg' id='language-button' onClick={changeLanguage}>
-        <Image
-          style={{ height: 'auto' }}
-          width={40}
-          src={locale === 'fi' ? FlagFi : FlagEn}
-          alt='language button english/finnish'
-        />
-        <span style={{ left: '-40px' }} className='tooltiptext'>
-          FI/EN
-        </span>
-      </button>
-
-      <button id='background-button' className='rounded-lg' style={{ marginLeft: '20px' }} onClick={toggleBackground}>
-        <FormattedMessage id='toggleBackground' defaultMessage='Toggle background' />
-      </button>
-    </div>
-  )
-}
 
 const MainContent = ({ showBackground, translation, projects, skills }) => {
   const [shownProjects, setShownProjects] = useState(projects)
@@ -126,11 +102,6 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
               <FormattedMessage id='projectsTitle' defaultMessage='Projects' />
             </h1>
           </div>
-          <div className='text-center'>
-            <h1 className='my-4 text-2xl font-bold'>
-              <FormattedMessage id='technologiesTitle' defaultMessage='Technologies' />
-            </h1>
-          </div>
           <div className='flex' style={{ padding: 20, alignSelf: 'center' }}>
             {technologies.map((t, index) => (
               <div
@@ -140,15 +111,19 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
                   padding: 30,
                   margin: 10,
                   borderRadius: 10,
-                  borderColor: t.selected ? 'green' : 'white',
+                  borderColor: 'white',
+                  backgroundColor: t.selected ? '#2c005f' : null,
                 }}
-                className='border hover:bg-green-800'
+                className='tooltip border hover:bg-purple-950'
                 onClick={() => {
                   t.selected = !t.selected
                   setShownProjects(projects.filter((p) => technologies.find((t) => t.type == p.type).selected))
                 }}
               >
                 <p className='font-semibold'>{t.type.toUpperCase()}</p>
+                <span style={{ top: 88, left: t.type == 'web' ? -10 : 1 }} className='tooltiptext'>
+                  <FormattedMessage id='filterProjects' defaultMessage='Click to filter' />
+                </span>
               </div>
             ))}
           </div>
@@ -203,6 +178,7 @@ export default function Page() {
   const [lang, setLang] = useState(English)
   const [translation, setTranslation] = useState(en)
   const backgroundColor = '#12071f'
+
   const projects = [
     {
       name: 'WebGIS Silkroad',
@@ -316,7 +292,6 @@ export default function Page() {
     { name: 'CSS', icon: 'css3' },
     { name: 'Git', icon: 'git' },
   ]
-
   const secondarySkills = [
     { name: 'React', icon: 'react' },
     { name: 'Python', icon: 'python' },
