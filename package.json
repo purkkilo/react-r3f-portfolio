@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "engines": {
-    "node": ">=14"
+    "node": "22.x"
   },
   "scripts": {
     "lint": "next lint --fix --dir app",
@@ -41,7 +41,7 @@
   "devDependencies": {
     "@next/bundle-analyzer": "^15.2.2",
     "autoprefixer": "^10.4.21",
-    "eslint": "^9.22.0",
+    "eslint": "^8.57.0",
     "eslint-config-next": "^15.2.2",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-tailwindcss": "^3.18.0",
