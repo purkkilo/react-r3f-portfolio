@@ -62,16 +62,16 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
           </div>
           {/* About */}
           <div className='text-center' id='about'>
-            <h1 className='my-4 text-5xl font-bold leading-tight text-skills'>
+            <h1 className='text-skills my-4 text-5xl font-bold leading-tight'>
               <FormattedMessage id='about' defaultMessage='About' />
             </h1>
-            <div className='text-box justify-center chrome'>
+            <div className='text-box justify-center'>
               <p className='text-wrap text-lg text-gray-300'>{translation.description}</p>
             </div>
             {/* First row of skills */}
-            <div className='flex justify-around scrolling-horizontal' style={{ marginTop: '80px' }}>
+            <div className='scrolling-horizontal flex justify-around' style={{ marginTop: '80px' }}>
               {skills.primary.map((skill, index) => (
-                <div key={index} className='flex flex-col items-center scroller-inner'>
+                <div key={index} className='scroller-inner flex flex-col items-center'>
                   <StackIcon name={skill.icon} style={{ height: '100px', width: '100px' }} />
                   <p className='font-semibold'>{skill.name}</p>
                 </div>
@@ -98,7 +98,7 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
           </div>
           {/* Projects */}
           <div className='text-center' style={{ marginTop: '400px' }}>
-            <h1 className='my-4 text-5xl font-bold leading-tight  text-skills'>
+            <h1 className='text-skills my-4 text-5xl font-bold  leading-tight'>
               <FormattedMessage id='projectsTitle' defaultMessage='Projects' />
             </h1>
           </div>
@@ -134,20 +134,20 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
           </div>
           {/* Contact */}
           <div className='mt-10 flex flex-col'>
-            <h1 className='my-4 content-center text-center text-5xl font-bold text-skills'>
+            <h1 className='text-skills my-4 content-center text-center text-5xl font-bold'>
               <FormattedMessage id='contact' defaultMessage='Contact' />
             </h1>
             <div className='m-10 p-10 text-center'>
-              <div className='flex content-center justify-center'>
+              <div className='flex place-content-center'>
                 <FaEnvelope size={25} style={{ marginRight: '10px' }} /> <span>jori.kosonen@gmail.com</span>
               </div>
-              <div className='flex content-center justify-center' style={{ marginTop: '10px' }}>
+              <div className='flex place-content-center' style={{ marginTop: '10px' }}>
                 <FaGithub size={25} style={{ marginRight: '10px' }} />{' '}
                 <a className='contact-link' href='https://github.com/purkkilo/purkkilo'>
                   GitHub
                 </a>
               </div>
-              <div className='flex content-center justify-center' style={{ marginTop: '10px' }}>
+              <div className='flex place-content-center' style={{ marginTop: '10px' }}>
                 <FaLinkedin size={25} color={'#0a66c2'} style={{ marginRight: '10px' }} />{' '}
                 <a className='contact-link' href='https://www.linkedin.com/in/joriko/'>
                   LinkedIn

@@ -39,7 +39,7 @@ const LinkButton = ({ href, children, isGithub }) => {
 
 export const Project = ({ project }) => {
   return (
-    <div className='m-2 flex-col rounded-lg bg-[#1f2e48] p-5 shadow-lg sm:m-10 sm:p-10 fade-in'>
+    <div className='fade-in m-2 flex-col rounded-lg bg-[#1f2e48] p-5 shadow-lg sm:m-10 sm:p-10'>
       <div className='image-title rounded-lg'>{project.name}</div>
       <Image
         className='project-image rounded-lg'
