@@ -1,8 +1,8 @@
 'use client'
-import Image from 'next/image'
-import { FaArrowUp, FaGithub, FaLink } from 'react-icons/fa'
+import SkillsDisplay from './SkillsDisplay'
 import { FormattedMessage } from 'react-intl'
-import StackIcon from 'tech-stack-icons'
+import { FaArrowUp, FaGithub, FaLink } from 'react-icons/fa'
+import Image from 'next/image'
 
 const LinkButton = ({ href, children, isGithub }) => {
   if (isGithub) {
@@ -43,22 +43,15 @@ export const Project = ({ project }) => {
       <div className='image-title rounded-lg'>{project.name}</div>
       <Image
         className='project-image rounded-lg'
-        width={800}
-        height={800}
+        width={400}
+        height={400}
         src={project.imageLink}
         alt={project.imageAlt}
       ></Image>
 
       <div className='justify-items-center p-3 text-center sm:p-10'>
         <p className='text-gray-300'>{project.description}</p>
-        <div className='flex justify-around rounded-lg sm:p-5' style={{ marginTop: '40px' }}>
-          {project.stack.map((tech, i) => (
-            <div key={i} style={{ margin: '10px' }} className='flex flex-col items-center'>
-              <StackIcon name={tech.icon} style={{ height: '70px', width: '70px' }} />
-              <p className='font-semibold'>{tech.name}</p>
-            </div>
-          ))}
-        </div>
+        <SkillsDisplay skills={project.stack} />
         <div style={{ marginTop: '20px' }} className='flex content-start justify-around'>
           {project.visitLink ? (
             <LinkButton href={project.visitLink} isGithub={false}>

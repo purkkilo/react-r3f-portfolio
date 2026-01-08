@@ -17,6 +17,7 @@ const nextConfig = {
   //   styledComponents: true,
   // },
   reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
+  transpilePackages: ['three', 'tunnel-rat', '@react-three/fiber', '@react-three/drei'],
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [

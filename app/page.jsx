@@ -1,5 +1,7 @@
 'use client'
-
+import { FaArrowDown, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { MenuButtons } from '@/components/ui/MenuButtons'
+import SkillsDisplay from '@/components/ui/SkillsDisplay'
 import dynamic from 'next/dynamic'
 import { Suspense, useLayoutEffect } from 'react'
 import Loading from '@/components/other/Loading'
@@ -10,9 +12,6 @@ import English from '../public/locales/en/translation.json'
 import { useState } from 'react'
 import { fi } from 'public/locales/fi/translations'
 import { en } from 'public/locales/en/translations'
-import { FaArrowDown, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
-import StackIcon from 'tech-stack-icons'
-import { MenuButtons } from '@/components/ui/MenuButtons'
 
 const Stars = dynamic(() => import('@/components/canvas/Stars').then((mod) => mod.Stars), {
   ssr: false,
@@ -21,6 +20,7 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
   ssr: false,
   loading: Loading,
 })
+
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
 const Project = dynamic(() => import('@/components/ui/Project').then((mod) => mod.Project), { ssr: false })
@@ -69,32 +69,11 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
               <p className='text-wrap text-lg text-gray-300'>{translation.description}</p>
             </div>
             {/* First row of skills */}
-            <div className='scrolling-horizontal flex justify-around' style={{ marginTop: '80px' }}>
-              {skills.primary.map((skill, index) => (
-                <div key={index} className='scroller-inner flex flex-col items-center'>
-                  <StackIcon name={skill.icon} style={{ height: '100px', width: '100px' }} />
-                  <p className='font-semibold'>{skill.name}</p>
-                </div>
-              ))}
-            </div>
+            <SkillsDisplay skills={skills.primary} />
             {/* Second row of skills */}
-            <div className='flex justify-around' style={{ margin: '80px' }}>
-              {skills.secondary.map((skill, index) => (
-                <div key={index} className='flex flex-col items-center'>
-                  <StackIcon name={skill.icon} style={{ height: '80px', width: '80px' }} />
-                  <p className='font-semibold'>{skill.name}</p>
-                </div>
-              ))}
-            </div>
+            <SkillsDisplay skills={skills.secondary} />
             {/* Other skills */}
-            <div className='flex justify-around' style={{ margin: '80px' }}>
-              {skills.other.map((skill, index) => (
-                <div key={index} className='flex flex-col items-center'>
-                  <StackIcon name={skill.icon} style={{ height: '60px', width: '60px' }} />
-                  <p className='font-semibold'>{skill.name}</p>
-                </div>
-              ))}
-            </div>
+            <SkillsDisplay skills={skills.other} />
           </div>
           {/* Projects */}
           <div className='text-center' style={{ marginTop: '400px' }}>
