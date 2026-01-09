@@ -10,8 +10,7 @@ import { FormattedMessage } from 'react-intl'
 import Finnish from '../public/locales/fi/translation.json'
 import English from '../public/locales/en/translation.json'
 import { useState } from 'react'
-import { fi } from 'public/locales/fi/translations'
-import { en } from 'public/locales/en/translations'
+import { careerData, selfDescriptions } from 'public/data/careerData'
 
 const Stars = dynamic(() => import('@/components/canvas/Stars').then((mod) => mod.Stars), {
   ssr: false,
@@ -25,15 +24,15 @@ const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mo
 
 const Project = dynamic(() => import('@/components/ui/Project').then((mod) => mod.Project), { ssr: false })
 
-const MainContent = ({ showBackground, translation, projects, skills }) => {
+const MainContent = ({ showBackground, locale, projects, skills }) => {
   const [shownProjects, setShownProjects] = useState(projects)
   const types = [...new Set(projects.map((p) => p.type))]
-
   const [technologies, setTechonologies] = useState(
     types.map((t) => {
       return { type: t, selected: true }
     }),
   )
+  const description = selfDescriptions[locale] || selfDescriptions['en']
 
   if (showBackground) {
     return (
@@ -66,7 +65,7 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
               <FormattedMessage id='about' defaultMessage='About' />
             </h1>
             <div className='text-box justify-center'>
-              <p className='text-wrap text-lg text-gray-300'>{translation.description}</p>
+              <p className='text-wrap text-lg text-gray-300'>{description}</p>
             </div>
             {/* First row of skills */}
             <SkillsDisplay skills={skills.primary} />
@@ -108,7 +107,7 @@ const MainContent = ({ showBackground, translation, projects, skills }) => {
           </div>
           <div>
             {shownProjects.map((project, index) => (
-              <Project key={index} project={project} />
+              <Project key={index} project={project} locale={locale} />
             ))}
           </div>
           {/* Contact */}
@@ -155,137 +154,12 @@ export default function Page() {
   const [showBackground, setShowBackground] = useState(true)
   const [locale, setLocale] = useState('en')
   const [lang, setLang] = useState(English)
-  const [translation, setTranslation] = useState(en)
   const backgroundColor = '#12071f'
-
-  const projects = [
-    {
-      name: 'WebGIS Silkroad',
-      dateCompleted: '3.11.2023',
-      dateUpdated: '12.2.2025',
-      imageLink: '/img/WebGIS_Example.png',
-      imageAlt: 'Image of WebGIS project',
-      type: 'web',
-      description: translation.webgisDescription,
-      visitLink: 'https://webgis-silkroad.onrender.com/',
-      githubLink: 'https://github.com/purkkilo/WebGIS-Silkroad',
-      stack: [
-        { name: 'Vue 2', icon: 'vuejs' },
-        { name: 'Vuetify', icon: 'vuejs' },
-        { name: 'Vue CLI', icon: 'vuejs' },
-        { name: 'JavaScript', icon: 'js' },
-      ],
-    },
-    {
-      name: 'Fisustaja',
-      dateCompleted: '1.4.2023',
-      dateUpdated: '14.6.2025',
-      imageLink: '/img/Fisustaja_Example.png',
-      imageAlt: 'Image of Fisustaja project',
-      type: 'web',
-      description: translation.fisustajaDescription,
-      visitLink: 'https://fisustaja.onrender.com/',
-      githubLink: 'https://github.com/purkkilo/Fisustaja',
-      stack: [
-        { name: 'Vue 2', icon: 'vuejs' },
-        { name: 'Vuetify', icon: 'vuejs' },
-        { name: 'MongoDB', icon: 'mongodb' },
-        { name: 'Node.js', icon: 'nodejs' },
-        { name: 'JavaScript', icon: 'js' },
-      ],
-    },
-    {
-      name: 'Portfolio',
-      dateCompleted: '23.3.2025',
-      dateUpdated: '26.6.2025',
-      imageLink: '/img/Portfolio_Example.png',
-      imageAlt: 'Image of this portfolio project',
-      description: translation.portfolioDescription,
-      type: 'web',
-      visitLink: '#main-content',
-      githubLink: 'https://github.com/purkkilo/react-r3f-portfolio',
-      stack: [
-        { name: 'React', icon: 'react' },
-        { name: 'Next.js', icon: 'nextjs' },
-        { name: 'TailwindCSS', icon: 'tailwindcss' },
-        { name: 'JavaScript', icon: 'js' },
-      ],
-    },
-    {
-      name: 'Wordpress Homepage for PPK Group OY',
-      dateCompleted: '19.6.2025',
-      dateUpdated: '19.6.2025',
-      imageLink: '/img/Wordpress_Example.png',
-      imageAlt: 'Image of the PPK Group OY homepage',
-      type: 'web',
-      description: 'Wordpress homepage for PPK Group OY',
-      visitLink: 'https://ppkgroup.fi/',
-      description: translation.wordPressDescription,
-      githubLink: '',
-      stack: [
-        { name: 'WordPress', icon: 'wordpress' },
-        { name: 'Otter Blocks', icon: 'wordpress' },
-        { name: 'HTML', icon: 'html5' },
-        { name: 'CSS', icon: 'css3' },
-      ],
-    },
-    {
-      name: 'Electricity Widget',
-      dateCompleted: '19.08.2025',
-      dateUpdated: '14.3.2025',
-      imageLink: '/img/Electricity_Example.jpg',
-      imageAlt: 'Image of Electricity Widget project',
-      type: 'mobile',
-      description: translation.webgisDescription,
-      visitLink: '',
-      githubLink: 'https://github.com/purkkilo/electricity-widget',
-      stack: [
-        { name: 'React Native', icon: 'react' },
-        { name: 'Expo', icon: 'react' },
-        { name: 'Typescript', icon: 'typescript' },
-        { name: 'Jest', icon: 'jest' },
-      ],
-    },
-    {
-      name: 'Receipt Share',
-      dateCompleted: '15.11.2025',
-      dateUpdated: '15.11.2025',
-      imageLink: '/img/ReceiptShare_Example.jpg',
-      imageAlt: 'Image of Receipt Share project',
-      type: 'mobile',
-      description: translation.receiptShareDescription,
-      visitLink: '',
-      githubLink: 'https://github.com/purkkilo/receipt-share',
-      stack: [
-        { name: 'React Native', icon: 'react' },
-        { name: 'Expo', icon: 'react' },
-        { name: 'Typescript', icon: 'typescript' },
-        { name: 'OCR (react-native-mlkit-ocr)', icon: 'js' },
-      ],
-    },
-  ]
-  const primarySkills = [
-    { name: 'JavaScript', icon: 'js' },
-    { name: 'Vue 2', icon: 'vuejs' },
-    { name: 'MongoDB', icon: 'mongodb' },
-    { name: 'CSS', icon: 'css3' },
-    { name: 'Git', icon: 'git' },
-  ]
-  const secondarySkills = [
-    { name: 'React', icon: 'react' },
-    { name: 'Python', icon: 'python' },
-    { name: 'SQL', icon: 'mysql' },
-    { name: 'TypeScript', icon: 'typescript' },
-  ]
-
-  const otherSkills = [{ name: 'WordPress', icon: 'wordpress' }]
-
-  const skills = { primary: primarySkills, secondary: secondarySkills, other: otherSkills }
+  const { projects, skills } = careerData
 
   const changeLanguage = () => {
     setLang(lang == Finnish ? English : Finnish)
     setLocale(locale == 'fi' ? 'en' : 'fi')
-    setTranslation(locale == 'fi' ? en : fi)
   }
 
   useLayoutEffect(() => {
@@ -311,7 +185,7 @@ export default function Page() {
       <IntlProvider locale={locale} messages={lang}>
         <MenuButtons locale={locale} changeLanguage={changeLanguage} toggleBackground={toggleBackground}></MenuButtons>
         <MainContent
-          translation={translation}
+          locale={locale}
           toggleBackground={toggleBackground}
           showBackground={showBackground}
           projects={projects}

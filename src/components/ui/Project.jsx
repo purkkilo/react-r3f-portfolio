@@ -37,7 +37,7 @@ const LinkButton = ({ href, children, isGithub }) => {
   }
 }
 
-export const Project = ({ project }) => {
+export const Project = ({ project, locale }) => {
   return (
     <div className='fade-in m-2 flex-col rounded-lg bg-[#1f2e48] p-5 shadow-lg sm:m-10 sm:p-10'>
       <div className='image-title rounded-lg'>{project.name}</div>
@@ -50,7 +50,7 @@ export const Project = ({ project }) => {
       ></Image>
 
       <div className='justify-items-center p-3 text-center sm:p-10'>
-        <p className='text-gray-300'>{project.description}</p>
+        <p className='text-gray-300'>{project.descriptions[locale]}</p>
         <SkillsDisplay skills={project.stack} />
         <div style={{ marginTop: '20px' }} className='flex content-start justify-around'>
           {project.visitLink ? (
