@@ -3,7 +3,7 @@ import { FaArrowDown, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { MenuButtons } from '@/components/ui/MenuButtons'
 import SkillsDisplay from '@/components/ui/SkillsDisplay'
 import dynamic from 'next/dynamic'
-import { Suspense, useLayoutEffect } from 'react'
+import { Suspense, useEffect, useLayoutEffect } from 'react'
 import Loading from '@/components/other/Loading'
 import { IntlProvider } from 'react-intl'
 import { FormattedMessage } from 'react-intl'
@@ -26,12 +26,14 @@ const Project = dynamic(() => import('@/components/ui/Project').then((mod) => mo
 
 const MainContent = ({ showBackground, locale, projects, skills }) => {
   const [shownProjects, setShownProjects] = useState(projects)
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear())
   const types = [...new Set(projects.map((p) => p.type))]
   const [technologies, setTechonologies] = useState(
     types.map((t) => {
       return { type: t, selected: true }
     }),
   )
+
   const description = selfDescriptions[locale] || selfDescriptions['en']
 
   if (showBackground) {
@@ -80,7 +82,7 @@ const MainContent = ({ showBackground, locale, projects, skills }) => {
               <FormattedMessage id='projectsTitle' defaultMessage='Projects' />
             </h1>
           </div>
-          <div className='flex' style={{ padding: 20, alignSelf: 'center' }}>
+          <div className='flex mb-10' style={{ padding: 20, alignSelf: 'center' }}>
             {technologies.map((t, index) => (
               <div
                 key={index}
@@ -89,10 +91,11 @@ const MainContent = ({ showBackground, locale, projects, skills }) => {
                   padding: 30,
                   margin: 10,
                   borderRadius: 10,
-                  borderColor: 'white',
-                  backgroundColor: t.selected ? '#2c005f' : null,
+                  borderColor: t.selected ? 'rgba(66, 33, 255, 1)' : 'gray',
+                  borderWidth: 1,
+                  backgroundColor: t.selected ? 'rgba(66, 33, 255, 0.3)' : 'transparent',
                 }}
-                className='tooltip border hover:bg-purple-950'
+                className='tooltip transition-transform duration-200 ease-out hover:scale-110'
                 onClick={() => {
                   t.selected = !t.selected
                   setShownProjects(projects.filter((p) => technologies.find((t) => t.type == p.type).selected))
@@ -107,7 +110,7 @@ const MainContent = ({ showBackground, locale, projects, skills }) => {
           </div>
           <div>
             {shownProjects.map((project, index) => (
-              <Project key={index} project={project} locale={locale} />
+              <Project key={index} project={project} locale={locale} index={index} />
             ))}
           </div>
           {/* Contact */}
@@ -135,8 +138,8 @@ const MainContent = ({ showBackground, locale, projects, skills }) => {
           </div>
         </div>
         {/* Footer */}
-        <div className='footer text-center text-white'>
-          <p>© 2025 Jori Kosonen, Site WIP and more projects to come</p>
+        <div className='footer text-center text-white' suppressHydrationWarning>
+          <p>© {currentYear} Jori Kosonen, Site WIP and more projects to come</p>
         </div>
       </div>
     )
