@@ -19,6 +19,6 @@ Web portfolio made with React, Next.js and TailwindCSS. Backgound "stars" were m
 
 ## **Todo**
 
-- Move careerData to some small db so page doesn't a commit every time something changes
+- Move careerData to some small db so page doesn't need a commit every time something changes
 
 This project was bootstrapped with [`create-r3f-app`](https://github.com/utsuboco/create-r3f-app)
