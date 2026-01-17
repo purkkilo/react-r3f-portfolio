@@ -185,7 +185,7 @@ tuote kerrallaan.`,
   ]
   const primarySkills = [
     { name: 'JavaScript', icon: 'js' },
-    { name: 'Vue 2', icon: 'vuejs' },
+    { name: 'Vue', icon: 'vuejs' },
     { name: 'MongoDB', icon: 'mongodb' },
     { name: 'CSS', icon: 'css3' },
     { name: 'Git', icon: 'git' },
