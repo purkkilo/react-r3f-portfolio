@@ -14,6 +14,9 @@ import {
   SiNodedotjs,
   SiHtml5,
   SiJest,
+  SiVite,
+  SiVuetify,
+  SiExpo,
 } from 'react-icons/si'
 import { FaQuestionCircle } from 'react-icons/fa'
 
@@ -33,6 +36,9 @@ const ICON_MAP = {
   nodejs: SiNodedotjs,
   jest: SiJest,
   html5: SiHtml5,
+  vite: SiVite,
+  vuetify: SiVuetify,
+  expo: SiExpo,
 }
 
 const ICON_COLORS = {
@@ -51,6 +57,9 @@ const ICON_COLORS = {
   wordpress: 'text-sky-400',
   jest: 'text-pink-600',
   html5: 'text-orange-600',
+  vite: 'text-purple-600',
+  vuetify: 'text-sky-400',
+  expo: 'text-grey-400',
 }
 
 const SkillIcon = ({ name, style, className = '' }) => {

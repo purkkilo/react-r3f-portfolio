@@ -25,32 +25,33 @@
     {
       name: 'WebGIS Silkroad',
       dateCompleted: '3.11.2023',
-      dateUpdated: '12.2.2025',
+      dateUpdated: '17.1.2026',
       imageLink: '/img/WebGIS_Example.png',
       imageAlt: 'Image of WebGIS project',
       type: 'web',
       descriptions: {
         fi: `Verkkosovellus silkkitien ja sen varrella olevien kaupunkien tarkastelemiseen.
   Tehty yliopiston GIS (Geographic Information Systems) kurssia varten. Silkkitien lisäksi matkalta näkyy kaupungit ja kolme lähintä hotellia.
+  2026 tuotu Vue 2:sta Vue 3 versioon ja päivitetty kaikki riippuvuudet.
   `,
         en: `Web app for viewing cities along the silkroad.
   Made for university's GIS (Geographic Information Systems) course. From the map you can find their coordinates,
-  and 3 of the closest hotels for most of the cities.
+  and 3 of the closest hotels for most of the cities. In 2026 rewritten from Vue 2 to Vue 3 and updated all the dependancies.
   `
       },
       visitLink: 'https://webgis-silkroad.onrender.com/',
       githubLink: 'https://github.com/purkkilo/WebGIS-Silkroad',
       stack: [
-        { name: 'Vue 2', icon: 'vuejs' },
-        { name: 'Vuetify', icon: 'vuejs' },
-        { name: 'Vue CLI', icon: 'vuejs' },
+        { name: 'Vue 3', icon: 'vuejs' },
+        { name: 'Vuetify', icon: 'vuetify' },
+        { name: 'Vite', icon: 'vite' },
         { name: 'JavaScript', icon: 'js' },
       ],
     },
     {
       name: 'Fisustaja',
       dateCompleted: '1.4.2023',
-      dateUpdated: '14.6.2025',
+      dateUpdated: '10.1.2026',
       imageLink: '/img/Fisustaja_Example.png',
       imageAlt: 'Image of Fisustaja project',
       type: 'web',
@@ -64,11 +65,11 @@
   MongoDB, JavaScript and Vue 2 stack. *The project is hosted on Render for free, so it might take a minute for the server to start.
   `
       },
-      visitLink: 'https://fisustaja.onrender.com/',
+      visitLink: null,
       githubLink: 'https://github.com/purkkilo/Fisustaja',
       stack: [
         { name: 'Vue 2', icon: 'vuejs' },
-        { name: 'Vuetify', icon: 'vuejs' },
+        { name: 'Vuetify', icon: 'vuetify' },
         { name: 'MongoDB', icon: 'mongodb' },
         { name: 'Node.js', icon: 'nodejs' },
         { name: 'JavaScript', icon: 'js' },
@@ -139,19 +140,19 @@ Sivuston tarkoitus on esitellä yritystä, sen palveluita ja yhteystietoja.`
         fi: `Sähkön hinta widget on verkkosovellus,
   joka mahdollistaa käyttäjien tarkastella sähkön hintoja Suomessa.
   Sovelluksessa on widget, joka voidaan lisätä käyttäjän kotinäyttöön,
-  ja se päivittää hinnat tunnin välein. Testattu Androidilla ja verkkoselaimella (iOS ei tuettu)
+  ja se päivittää hinnat tunnin välein. Testattu Androidilla ja verkkoselaimella (iOS ei tuettu).
 `,
         en: `Electricity widget is a web application
   that allows users to view current electricity prices in Finland.
   The app has a widget that can be added to the user's home screen,
-  and it updates the prices every hour. Tested on Android and web browser (iOS excluded)
+  and it updates the prices every hour. Tested on Android and web browser (iOS excluded).
   `
       },
       visitLink: '',
       githubLink: 'https://github.com/purkkilo/electricity-widget',
       stack: [
         { name: 'React Native', icon: 'react' },
-        { name: 'Expo', icon: 'react' },
+        { name: 'Expo', icon: 'expo' },
         { name: 'Typescript', icon: 'typescript' },
         { name: 'Jest', icon: 'jest' },
       ],
@@ -166,15 +167,17 @@ Sivuston tarkoitus on esitellä yritystä, sen palveluita ja yhteystietoja.`
       descriptions: {
         fi: `Tällä sovelluksella voit lukea tiedot kuitista digitaaliseen muotoon,
 muokata tai lisätä tuotteita manuaalisesti, lisätä omia kuluja, ja jakaa nämä kulut osallistujien kesken
-tuote kerrallaan`,
-        en: `With this app you can read price information from receipts, modify them manually, add your own expenses, and share these expenses product by product.`
+tuote kerrallaan.`,
+        en: `With this app you can read price information from receipts,
+        modify them manually, add your own expenses, and share these expenses product by product.
+        Only available in finnish, at least for now.`
 
       },
       visitLink: '',
       githubLink: 'https://github.com/purkkilo/receipt-share',
       stack: [
         { name: 'React Native', icon: 'react' },
-        { name: 'Expo', icon: 'react' },
+        { name: 'Expo', icon: 'expo' },
         { name: 'Typescript', icon: 'typescript' },
         { name: 'OCR (react-native-mlkit-ocr)', icon: 'js' },
       ],
